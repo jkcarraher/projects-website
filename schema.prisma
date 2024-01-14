@@ -11,12 +11,14 @@ datasource db {
 }
 
 model Post {
-  id        String     @default(cuid()) @id
-  title     String
-  content   String?
-  published Boolean @default(false)
-  author    User?   @relation(fields: [authorId], references: [id])
-  authorId  String?
+  id            String     @default(cuid()) @id
+  title         String
+  description   String?
+  publishDate   String?
+  timeToRead    String?
+  published     Boolean @default(false)
+  author        User?   @relation(fields: [authorId], references: [id])
+  authorId      String?
 }
 
 model User {

@@ -1,16 +1,13 @@
 import Image from 'next/image'
 import prisma from "@/lib/prisma"
 import Post from './components/Post';
+import Header from './components/Header'
 
-async function getPosts(){
+async function getPosts() {
   const posts = await prisma.post.findMany({
-    where: {published: true},
-    include: {
-      author:{
-        select: {name: true}
-      }
-    }
-  })
+    where: { published: true },
+  });
+
   return posts;
 }
 
@@ -18,16 +15,7 @@ export default async function Home() {
   const posts = await getPosts();
   return (
     <main className="p-0">
-      {/* Header */}
-      <header className="flex justify-between items-center p-4 pb-10">
-        <div>
-          <h1 className="text-2xl font-bold ml-5">John Carraher</h1>
-        </div>
-        <div className="flex gap-4 mr-5">
-          <a href="/projects" className="text-deselect hover:text-select font-medium">Projects</a>
-          <a href="/resume" className="text-deselect hover:text-select font-medium">Resume</a>
-        </div>
-      </header>
+      <Header/>
 
       {/* Body */}
       <div className="flex justify-center">
@@ -53,7 +41,6 @@ export default async function Home() {
       </div>
 
       {/* Projects Mini-View */}
-      <a href={'/add-post'}>Add Post</a>
       <div>
         {
           posts.map((post) => {
@@ -62,8 +49,9 @@ export default async function Home() {
               key = {post.id}
               id={post.id}
               title={post.title}
-              content = {post.content}
-              authorName = {post.author.name}
+              description={post.description}
+              publishDate = {post.publishDate}
+              readTime={post.timeToRead}
               />
             )
           })

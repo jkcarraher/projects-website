@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-rgb: 29, 30, 32;
+  --foreground-rgb: 218, 218, 218;
+  --foreground2ndary-rgb: 155, 155, 155;
 
-  --text-select: 218, 218, 218;
-  --text-deselect: 155, 155, 155;
+  --background-rgb: 29, 30, 32;
+  --background2ndary-rgb: 46, 46, 51;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,10 +23,15 @@ body {
   background: rgb(var(--background-rgb));
 }
 
+.project-preview {
+  background: rgb(var(--background2ndary-rgb));
+}
+
+
 .text-deselect {
-  color: rgb(var(--text-deselect));
+  color: rgb(var(--foreground2ndary-rgb));
 }
 
 .hover\:text-select:hover {
-  color: rgb(var(--text-select));
+  color: rgb(var(--foreground-rgb));
 }
