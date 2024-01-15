@@ -14,7 +14,7 @@ model Post {
   id            String     @default(cuid()) @id
   title         String
   description   String?
-  publishDate   String?
+  publishDate   DateTime @default(now())
   timeToRead    String?
   published     Boolean @default(false)
   author        User?   @relation(fields: [authorId], references: [id])
@@ -25,6 +25,7 @@ model User {
   id            String       @default(cuid()) @id
   name          String?
   email         String?   @unique
+  password      String
   createdAt     DateTime  @default(now()) @map(name: "created_at")
   updatedAt     DateTime  @updatedAt @map(name: "updated_at")
   posts         Post[]

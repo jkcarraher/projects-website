@@ -1,4 +1,5 @@
 import Post from '../components/Post'
+import prisma from "@/lib/prisma"
 import Header from '../components/Header';
 
 async function getPosts(){
