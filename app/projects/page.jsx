@@ -1,5 +1,5 @@
 import Post from '../components/Post'
-import prisma from "@/lib/prisma"
+import prisma from '@/lib/prisma';
 import Header from '../components/Header';
 
 async function getPosts(){
@@ -31,7 +31,7 @@ export default async function Projects(){
                 id={post.id}
                 title={post.title}
                 description={post.description}
-                publishDate = {post.publishDate}
+                publishDate = {post.formattedDate}
                 readTime={post.timeToRead}
                 />
               )

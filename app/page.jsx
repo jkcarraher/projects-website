@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import prisma from "@/lib/prisma"
+import prisma from '@/lib/prisma'
 import Post from './components/Post';
 import Header from './components/Header'
 

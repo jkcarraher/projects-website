@@ -15,6 +15,7 @@ model Post {
   title         String
   description   String?
   publishDate   DateTime @default(now())
+  formattedDate String     @map(name: "formatted_date")
   timeToRead    String?
   published     Boolean @default(false)
   author        User?   @relation(fields: [authorId], references: [id])
