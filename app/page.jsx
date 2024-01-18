@@ -50,7 +50,7 @@ export default async function Home() {
               id={post.id}
               title={post.title}
               description={post.description}
-              publishDate = {post.publishDate}
+              publishDate = {post.formattedDate}
               readTime={post.timeToRead}
               />
             )
