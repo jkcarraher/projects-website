@@ -1,7 +1,8 @@
 'use client'
-import { useState} from "react";
+import {useState} from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import useRouter from "next/navigation";
+import Header from '@/app/components/Header'
 
 export default function AddPost(){
   const [title, setTitle] = useState('');
@@ -37,6 +38,7 @@ export default function AddPost(){
 
     return (
         <main>
+          <Header/>
           <a href={'/'}>View Feed</a>
           <h1>Add Post</h1>
           <form onSubmit={handleSubmit}>
