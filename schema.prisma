@@ -24,6 +24,7 @@ model Post {
 
 model User {
   id            String       @default(cuid()) @id
+  username      String
   name          String?
   email         String?   @unique
   password      String
